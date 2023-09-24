@@ -7,7 +7,7 @@ import { useGetUserInfo } from "../../hooks/useGetUserinfo";
 
 export const Auth = () => {
   const navigate = useNavigate();
-  // const { isAuth } = useGetUserInfo();
+  const { isAuth } = useGetUserInfo();
   const signInWithGoogle = async () => {
     try {
       const results = await signInWithPopup(auth, provider);
@@ -27,9 +27,9 @@ export const Auth = () => {
       console.error("Error signing in with Google:", error);
     }
   };
-  // if (isAuth) {
-  //   return <Navigate to="/money-tracker" />;
-  // }
+  if (isAuth) {
+    return <Navigate to="/money-tracker" />;
+  }
 
   return (
     <div className="login-page">
